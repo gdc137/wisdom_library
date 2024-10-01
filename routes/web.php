@@ -5,11 +5,11 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Auth::routes();
+
+// admin routes 
+require __DIR__ . '/admin.php';
+
 Route::get('/{pathMatch}', function () {
     return view('home');
 })->where('pathMatch', '.*');
-
-Auth::routes();
-
-// user routes 
-require __DIR__ . '/admin.php';
