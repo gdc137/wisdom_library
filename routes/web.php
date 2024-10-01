@@ -13,5 +13,3 @@ Route::get('/{pathMatch}', function () {
 })->where('pathMatch', '.*');
 
 Auth::routes();
-
-// Route::get('/home2', [HomeController::class, 'index2'])->name('home2');

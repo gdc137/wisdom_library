@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark px-0 py-1 navbar-cstyle">
         <div class="container-xl">
             <!-- Logo -->
             <RouterLink class="navbar-brand" to="/">
-                <img src="assets/img/logo.png" class="h-8" height="100" alt="...">
+                <img src="assets/img/logo.png" class="h-8" height="60" alt="...">
             </RouterLink>
             <!-- Navbar toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -23,3 +23,11 @@
         </div>
     </nav>
 </template>
+
+<style>
+.navbar-cstyle {
+    /* background-color: #41B3A2; */
+    /* background-color: #8C3061; */
+    background-color: #9B86BD;
+}
+</style>

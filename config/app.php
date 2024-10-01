@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Wisdom Library'),
+    'name' => env('APP_NAME', 'Wisdom_Library'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://allwisdomlibrary.com/'),
 
     /*
     |--------------------------------------------------------------------------

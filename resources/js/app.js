@@ -1,6 +1,10 @@
 import './bootstrap';
 import { createApp } from 'vue';
- 
+import HeaderComp from './components/general/HeaderComp.vue';
+import FooterComp from './components/general/FooterComp.vue';
+import CardComp from './components/general/CardComp.vue';
+import CardlistComp from './components/general/CardlistComp.vue';
+
 import Swal from 'sweetalert2'
 
 window.Swal = Swal
@@ -13,7 +17,13 @@ const toast = Swal.mixin({
 })
 window.toast = toast
 
-import app from './components/App.vue'
+import App from './components/App.vue'
 import router from './router'
 
-createApp(app).use(router).mount('#app');
+const app = createApp(App)
+app.use(router)
+app.component('header-comp', HeaderComp)
+app.component('footer-comp', FooterComp)
+app.component('card-comp', CardComp)
+app.component('cardlist-comp', CardlistComp)
+app.mount('#app')
