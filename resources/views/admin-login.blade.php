@@ -1,6 +1,5 @@
-@extends('layouts.admin-layout')
+@extends('layouts.admin-login-layout')
 
 @section('content')
-this is admin view
 <div id="app"></div>
 @endsection

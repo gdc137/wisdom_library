@@ -1,5 +1,36 @@
+<script>
+import axios from 'axios';
+import { useRouter } from 'vue-router'
+import HeaderComp from '../general/HeaderComp.vue'
+import FooterComp from '../general/FooterComp.vue';
+import CardlistComp from '../general/CardlistComp.vue';
+
+export default {
+
+    data() {
+        return {
+            router: useRouter(),
+        }
+    },
+
+    components: {
+        HeaderComp,
+        FooterComp,
+        CardlistComp
+    },
+
+    methods: {
+        logout() {
+            axios.post('/_admin/logout').then(() => {
+                this.router.push('/_admin')
+                toast.fire({ icon: 'success', title: 'Logout success' })
+            })
+        }
+    }
+}
+</script>
 <template>
-    <header-comp></header-comp>
+    <HeaderComp />
     <!-- <div class="container">
         <div class="search">
             <div class="row">
@@ -12,11 +43,11 @@
             </div>
         </div>
     </div> -->
-    
+    <button @click="logout()">logout</button>
     <section class="my-5">
-        <cardlist-comp></cardlist-comp>
+        <CardlistComp />
     </section>
-    <footer-comp></footer-comp>
+    <FooterComp />
 </template>
 
 

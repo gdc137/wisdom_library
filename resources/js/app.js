@@ -1,29 +1,26 @@
-import './bootstrap';
-import { createApp } from 'vue';
-import HeaderComp from './components/general/HeaderComp.vue';
-import FooterComp from './components/general/FooterComp.vue';
-import CardComp from './components/general/CardComp.vue';
-import CardlistComp from './components/general/CardlistComp.vue';
+import "./bootstrap";
+import { createApp } from "vue";
+import axios from "axios";
 
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
-window.Swal = Swal
+window.Swal = Swal;
 const toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: "top-end",
     showConfirmButton: false,
     timer: 3000,
-    timerProgressBar: true
-})
-window.toast = toast
+    timerProgressBar: true,
+});
+window.toast = toast;
 
-import App from './components/App.vue'
-import router from './router'
+axios.defaults.headers.common["X-CSRF-TOKEN"] = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
 
-const app = createApp(App)
-app.use(router)
-app.component('header-comp', HeaderComp)
-app.component('footer-comp', FooterComp)
-app.component('card-comp', CardComp)
-app.component('cardlist-comp', CardlistComp)
-app.mount('#app')
+import App from "./components/App.vue";
+import router from "./router";
+
+const app = createApp(App);
+app.use(router);
+app.mount("#app");

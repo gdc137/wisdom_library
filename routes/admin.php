@@ -1,18 +1,16 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 
-// Route::get('/admin', function(){
-//     return view('admin');
-// })->name('login');
 
 // Authentication Routes...
 Route::get('/_admin', [LoginController::class, 'showLoginForm'])->name('login');
-// Route::post('login', 'Auth\LoginController@login');
-// Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('/_admin/login', [LoginController::class, 'login'])->name('login.post');
+Route::post('/_admin/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Registration Routes...
 // Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -33,3 +31,7 @@ Route::get('/_admin', [LoginController::class, 'showLoginForm'])->name('login');
 // Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify'); // v6.x
 // /* Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify'); // v5.x */
 // Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/_admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});

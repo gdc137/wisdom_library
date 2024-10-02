@@ -1,3 +1,7 @@
+<script setup>
+import CardComp from './CardComp.vue';
+</script>
+
 <template>
     <div class="container">
         <div class="row">
