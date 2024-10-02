@@ -5,7 +5,7 @@ export default {
     data() {
         return {
             email: 'girdharrathod786@gmail.com',
-            password: 'test123test',
+            password: 'testtest',
             errorMessage: '',
         }
     },
@@ -18,11 +18,11 @@ export default {
                     password: this.password,
                 }).then((response) => {
                     window.location.href = '/_admin/dashboard';
-                    toast.fire({ icon: 'success', title: 'Login successfull' })
                 })
             } catch (error) {
                 if (error.response.status === 422) {
                     this.errorMessage = error.response.data.errors;
+
                 }
             }
         },
@@ -40,13 +40,13 @@ export default {
             <div class="content-body">
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
-                        <a class="brand-logo" href="_admin/login">
-                            <img src="assets/img/logo.png" alt="Logo" class="ourlogo">
-                        </a>
+                        <router-link class="brand-logo" to="/_admin">
+                            <img src="/assets/img/logo.png" alt="Logo" class="ourlogo">
+                        </router-link>
 
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
                             <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
-                                <img class="img-fluid" src="admin-app-assets/images/pages/user-login.png"
+                                <img class="img-fluid" src="/admin-app-assets/images/pages/user-login.png"
                                     alt="Login V2" />
                             </div>
                         </div>
@@ -68,10 +68,9 @@ export default {
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="password">Password</label>
-                                            <a href="admin/forgetpassword">
+                                            <router-link to="/_admin/password/reset">
                                                 <small>Forgot Password?</small>
-                                                <!-- href="password.request" -->
-                                            </a>
+                                            </router-link>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="password" type="password"
