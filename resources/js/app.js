@@ -1,4 +1,4 @@
-import "./bootstrap";
+// import "./bootstrap";
 import { createApp } from "vue";
 import axios from "axios";
 
@@ -17,6 +17,7 @@ window.toast = toast;
 axios.defaults.headers.common["X-CSRF-TOKEN"] = document
     .querySelector('meta[name="csrf-token"]')
     .getAttribute("content");
+axios.defaults.withCredentials = true;
 
 import App from "./components/App.vue";
 import router from "./router";

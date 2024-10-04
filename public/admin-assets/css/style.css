@@ -46,6 +46,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    background-image: url("assets/img/logo.png");
 }
 
 .mainlogoarea {
@@ -83,3 +84,33 @@ tbody {
     font-size: 15px;
     font-weight: 600;
 } */
+
+table.dataTable>thead .sorting:before,
+table.dataTable>thead .sorting_asc:before {
+    content: '';
+}
+
+table.dataTable>thead .sorting:after,
+table.dataTable>thead .sorting_asc:after {
+    content: '';
+}
+
+.buttons-columnVisibility {
+    width: 80%;
+    color: black;
+    background: #fbb21b;
+}
+
+.buttons-columnVisibility.active {
+    width: 80%;
+    color: white;
+    background: #1f2358;
+}
+
+tbody {
+    font-size: 14px;
+}
+
+.btntbl tr td {
+    padding: 0 0.5rem !important;
+}

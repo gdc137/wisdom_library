@@ -24,7 +24,7 @@
     <meta name="robots" content="NOINDEX,NOFOLLOW" />
     <link rel="apple-touch-icon" href="{{ asset('assets/img/icon-small.pngg') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/icon-small.png') }}">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'> -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin-app-assets/vendors/css/vendors.min.css') }}">

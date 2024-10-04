@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\LanguageController;
 
 // Authentication Routes...
 Route::get('/_admin', [LoginController::class, 'showLoginForm'])->name('login');
@@ -18,5 +19,14 @@ Route::get('/_admin/password/reset/{token}', [ResetPasswordController::class, 's
 Route::post('/_admin/password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/_admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/_admin/dashboard', [AdminController::class, 'index']);
+
+    // languages 
+    Route::get('/_admin/languages', [LanguageController::class, 'index']);
+    Route::get('/_admin/languages/get', [LanguageController::class, 'get']);
+    Route::post('/_admin/languages', [LanguageController::class, 'store']);
+    Route::get('/_admin/languages/{id}/edit', [LanguageController::class, 'edit']);
+    Route::put('/_admin/languages/{id}', [LanguageController::class, 'update']);
+    Route::delete('/_admin/languages/{id}', [LanguageController::class, 'destroy']);
+    Route::patch('/_admin/languages/{id}/status', [LanguageController::class, 'changeStatus']);
 });

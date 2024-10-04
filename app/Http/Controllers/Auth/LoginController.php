@@ -21,6 +21,13 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/_admin/dashboard';
+
+    /**
      * Show the application's login form.
      *
      * @return \Illuminate\View\View
@@ -29,13 +36,6 @@ class LoginController extends Controller
     {
         return view('admin-login');
     }
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
