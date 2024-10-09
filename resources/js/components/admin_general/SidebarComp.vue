@@ -51,6 +51,13 @@ export default {
                     </router-link>
                 </li>
 
+                <li class="nav-item" :class="{ active: currentRoute === '/_admin/scriptures' }">
+                    <router-link class="d-flex align-items-center" to="/_admin/scriptures">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="menu-title text-truncate" data-i18n="scriptures">Scriptures</span>
+                    </router-link>
+                </li>
+
                 <li class="nav-item" :class="{ active: currentRoute === '/_admin/languages' }">
                     <router-link class="d-flex align-items-center" to="/_admin/languages">
                         <i class="fa-solid fa-language"></i>

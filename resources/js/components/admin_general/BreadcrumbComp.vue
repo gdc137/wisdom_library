@@ -29,8 +29,8 @@ export default {
         <div class="content-header-right text-md-end col-md-3 col-12 d-md-block" v-if="data.addBtn">
             <div class="mb-1 breadcrumb-right">
                 <div class="dropdown">
-                    <button type="button" id="modalbutton" class="btn btn-relief-primary" data-bs-toggle="modal"
-                        data-bs-target="#addItemModal"><i class="fa-solid fa-plus"></i> Add</button>
+                    <button type="button" class="btn btn-relief-primary" data-bs-toggle="modal"
+                        data-bs-target="#addItemModal" ref="OpenModal"><i class="fa-solid fa-plus"></i> Add</button>
                 </div>
             </div>
         </div>

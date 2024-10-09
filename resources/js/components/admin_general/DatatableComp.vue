@@ -25,16 +25,14 @@ export default {
                     this.$emit('editItem', id);
                 } else if (action === 'delete') {
                     this.$emit('deleteItem', id);
+                } else if (action === 'changeStatus') {
+                    this.$emit('changeStatus', id);
                 }
             });
         },
 
-        showlog(){
-            console.log('this is it');
-            
-        }
     },
-    
+
     mounted() {
         this.handleTableEvents(); // Attach event listeners to the table after it's mounted
     },
@@ -48,9 +46,15 @@ export default {
 
 <template>
 
-    <div class="p-1">
+    <div class="p-1 scroll">
         <DataTable :columns="columns" :data="tableData" class="datatables-basic table display" ref="datatable">
         </DataTable>
     </div>
 
 </template>
+
+<style>
+.scroll {
+    overflow-x: auto !important;
+}
+</style>

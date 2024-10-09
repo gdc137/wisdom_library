@@ -105,7 +105,6 @@
 
     <script>
         $(window).on('load', function() {
-            $('#page_title').append($('.content-header-title').html());
             $(".loader").css("display", "none");
             $(".loaderbody").css("display", "none");
         })

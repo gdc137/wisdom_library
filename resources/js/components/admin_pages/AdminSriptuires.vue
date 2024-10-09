@@ -7,21 +7,21 @@ import BodyComp from '../admin_general/BodyComp.vue';
 import BreadcrumbComp from '../admin_general/BreadcrumbComp.vue';
 import DatatableComp from '../admin_general/DatatableComp.vue';
 import ModalComp from '../admin_general/ModalComp.vue';
-import LanguageForm from '../language/LanguageForm.vue';
 import DeleteItemComp from '../admin_general/DeleteItemComp.vue';
+import ScriptureForm from '../scripture/ScriptureForm.vue';
 
 export default {
 
     data() {
         return {
             breadcrumbData: {
-                'title': 'Languages',
+                'title': 'Scriptures',
                 'path': [{ 'name': 'Dashboard', 'route': '/_admin/dashboard' }],
                 'addBtn': true,
             },
             columns: [
                 { data: 'id', title: 'Id' },
-                { data: 'name', title: 'Name' },
+                { data: 'title', title: 'Title' },
                 {
                     data: null, title: 'Active Status', render: (data, type, row) => {
 
@@ -33,8 +33,8 @@ export default {
                     data: null,
                     render: (data, type, row) => {
                         return `<div class="d-flex flex-row"><button class="btn btn-info btn-sm me-1" data-bs-toggle="modal"
-                                data-bs-target="#editItemModal" data-id="${row.id}" data-action="edit"><i class="fa-regular fa-pen-to-square"></i></button>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${row.id}" data-action="delete"><i class="fa-solid fa-trash-can"></i></button></div>`
+                                data-bs-target="#editItemModal" data-id="${row.id}" data-action="edit">Edit</button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="${row.id}" data-action="delete">Delete</button></div>`
                     }
                 }
             ],
@@ -47,7 +47,7 @@ export default {
 
     methods: {
         fetchData() {
-            axios.get('/_admin/languages/get').then((response) => {
+            axios.get('/_admin/scriptures/get').then((response) => {
                 this.res = response.data.data
             }).catch(e => {
                 this.errorMessage = e.response.data.message
@@ -63,7 +63,7 @@ export default {
         },
 
         deleteConfirm(id) {
-            axios.delete(`/_admin/languages/${id}`)
+            axios.delete(`/_admin/scriptures/${id}`)
                 .then(() => {
                     this.deleteId = ''
                     this.fetchData()
@@ -71,7 +71,7 @@ export default {
         },
 
         chagneStatus(id) {
-            axios.patch(`/_admin/languages/${id}/status`).then((response) => {
+            axios.patch(`/_admin/scriptures/${id}/status`).then((response) => {
                 toast.fire({ icon: 'success', title: response.data.message })
                 this.fetchData()
             }).catch(e => {
@@ -92,8 +92,8 @@ export default {
         BreadcrumbComp,
         DatatableComp,
         ModalComp,
-        LanguageForm,
-        DeleteItemComp
+        DeleteItemComp,
+        ScriptureForm
     },
 
 
@@ -119,12 +119,12 @@ export default {
             </div>
         </section>
 
-        <modal-comp modal-for="addItemModal" modal-title="Add Language">
-            <LanguageForm @reloadTable="fetchData" :edit-id="null" />
+        <modal-comp modal-for="addItemModal" modal-title="Add Scripture">
+            <ScriptureForm @reloadTable="fetchData" :edit-id="null" />
         </modal-comp>
 
-        <modal-comp modal-for="editItemModal" modal-title="Edit Language">
-            <LanguageForm @reloadTable="fetchData" :edit-id="editId" />
+        <modal-comp modal-for="editItemModal" modal-title="Edit Scripture">
+            <ScriptureForm @reloadTable="fetchData" :edit-id="editId" />
         </modal-comp>
 
         <modal-comp modal-for="deleteModal" modal-title="Sure, you want to delete?">

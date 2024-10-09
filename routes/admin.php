@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ScriptureController;
 
 // Authentication Routes...
 Route::get('/_admin', [LoginController::class, 'showLoginForm'])->name('login');
@@ -29,4 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/_admin/languages/{id}', [LanguageController::class, 'update']);
     Route::delete('/_admin/languages/{id}', [LanguageController::class, 'destroy']);
     Route::patch('/_admin/languages/{id}/status', [LanguageController::class, 'changeStatus']);
+
+    // scripture 
+    Route::get('/_admin/scriptures', [ScriptureController::class, 'index']);
+    Route::get('/_admin/scriptures/get', [ScriptureController::class, 'get']);
+    Route::post('/_admin/scriptures', [ScriptureController::class, 'store']);
+    Route::get('/_admin/scriptures/{id}/edit', [ScriptureController::class, 'edit']);
+    Route::put('/_admin/scriptures/{id}', [ScriptureController::class, 'update']);
+    Route::delete('/_admin/scriptures/{id}', [ScriptureController::class, 'destroy']);
+    Route::patch('/_admin/scriptures/{id}/status', [ScriptureController::class, 'changeStatus']);
 });

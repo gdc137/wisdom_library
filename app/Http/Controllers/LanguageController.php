@@ -20,4 +20,50 @@ class LanguageController extends Controller
             'data' => $languages,
         ], 200);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required'],
+        ]);
+
+        $language = new Language();
+        $language->name = $request->name;
+        $language->save();
+        return response()->json(['message' => 'Language added successfully'], 200);
+    }
+
+    public function edit($id)
+    {
+        return response()->json(['data' => Language::find($id)], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $language = Language::find($id);
+        $language->name = $request->name;
+        $language->save();
+        return response()->json(['message' => 'Language updated successfully'], 200);
+    }
+
+    public function changeStatus($id)
+    {
+        $languages = Language::find($id);
+        $languages->active_status =  $languages->active_status == 1 ? 0 : 1;
+        $languages->save();
+        return response()->json(['message' => 'Status changed successfully'], 200);
+    }
+
+    public function destroy($id)
+    {
+        // Language::find($id)->delete();
+        $language = Language::find($id);
+        $language->delete_status = 1;
+        $language->save();
+        return response()->json(['message' => 'Deleted successfully'], 200);
+    }
 }

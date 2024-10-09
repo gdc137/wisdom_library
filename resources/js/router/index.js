@@ -9,6 +9,7 @@ import AdminResetpassword from "../components/admin_pages/AdminResetpassword.vue
 import AdminDashboard from "../components/admin_pages/AdminDashboard.vue";
 import AdminPagenotfound from "../components/admin_pages/AdminPagenotfound.vue";
 import AdminLangugaes from "../components/admin_pages/AdminLangugaes.vue";
+import AdminSriptuires from "../components/admin_pages/AdminSriptuires.vue";
 
 // import DashboardIndex from "../components/dashboard/index.vue";
 // import DashboardFrom from "../components/dashboard/Form.vue"
@@ -16,7 +17,6 @@ import AdminLangugaes from "../components/admin_pages/AdminLangugaes.vue";
 const routes = [
     { path: "/", name: "dashboard.index", component: HomeComp },
 
-    
     // admin routes 
     { path: "/_admin", name: "admin.login", component: AdminLogin },
     { path: "/_admin/password/reset", name: "admin.forgotpassword", component: AdminForgotpassword },
@@ -24,6 +24,7 @@ const routes = [
 
     { path: "/_admin/dashboard", name: "admin.dashboard", component: AdminDashboard },
     { path: "/_admin/languages", name: "admin.languages", component: AdminLangugaes },
+    { path: "/_admin/scriptures", name: "admin.scriptures", component: AdminSriptuires },
 
 
     { path: "/_admin/:pathMatch(.*)*", name: "admin.notfound", component: AdminPagenotfound },

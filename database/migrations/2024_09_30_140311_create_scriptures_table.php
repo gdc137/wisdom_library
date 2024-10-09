@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title', 500);
             $table->text('description')->nullable();
             $table->string('image', 200)->nullable();
-            $table->string('auther', 200)->nullable();
+            $table->string('author', 200)->nullable();
             $table->string('publish_detail', 500)->nullable();
             $table->string('root_language', 200)->nullable();
             $table->dateTime('visible_at');
